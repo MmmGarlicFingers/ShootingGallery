@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://dg60odwhtjrho"]
+
+[ext_resource type="PackedScene" uid="uid://c1hq7x2xqu7i6" path="res://Scenes/Components/health_component.tscn" id="1_a643g"]
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_ahpx1"]
+[ext_resource type="Script" path="res://Scenes/UI/ammo_ui.gd" id="2_iook3"]
+[ext_resource type="PackedScene" uid="uid://bc1eenrd8jhyj" path="res://Scenes/gun.tscn" id="3_a1yc5"]
+[ext_resource type="Script" path="res://Scenes/UI/health_ui.gd" id="3_w4v3h"]
+[ext_resource type="PackedScene" uid="uid://noma0in8bafj" path="res://Scenes/Components/barrier_component.tscn" id="5_vrr04"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_unifh"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_4xb1q"]
+events = [SubResource("InputEventKey_unifh")]
+
+[node name="Player" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahpx1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BarrierComponent" parent="." instance=ExtResource("5_vrr04")]
+position = Vector2(0, 320)
+
+[node name="Footer" type="HFlowContainer" parent="."]
+layout_mode = 0
+offset_left = -576.0
+offset_top = 224.0
+offset_right = 576.0
+offset_bottom = 324.0
+alignment = 1
+
+[node name="HealthUI" type="Button" parent="Footer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 67
+shortcut = SubResource("Shortcut_4xb1q")
+text = "E"
+script = ExtResource("3_w4v3h")
+
+[node name="Duck" type="Button" parent="Footer"]
+custom_minimum_size = Vector2(720, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 67
+action_mode = 0
+text = "SPACE"
+
+[node name="AmmoUI" type="Button" parent="Footer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 67
+text = "R"
+script = ExtResource("2_iook3")
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_a643g")]
+MAX_HEALTH = 3
+
+[node name="Gun" parent="." instance=ExtResource("3_a1yc5")]
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
+[connection signal="duck" from="." to="BarrierComponent" method="_duck"]
+[connection signal="unduck" from="." to="BarrierComponent" method="_unduck"]
+[connection signal="button_down" from="Footer/Duck" to="." method="_on_duck_button_down"]
+[connection signal="button_up" from="Footer/Duck" to="." method="_on_duck_button_up"]
+[connection signal="damaged" from="HealthComponent" to="Footer/HealthUI" method="_on_health_component_damaged"]
+[connection signal="dead" from="HealthComponent" to="." method="die"]
+[connection signal="update_ammo" from="Gun" to="Footer/AmmoUI" method="_on_gun_update_ammo"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg56j7pieb818"]
+
+[ext_resource type="Script" path="res://Scenes/Components/ammo_component.gd" id="1_ese2x"]
+
+[node name="AmmoComponent" type="Node2D"]
+script = ExtResource("1_ese2x")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

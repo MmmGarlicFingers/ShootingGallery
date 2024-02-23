@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf8q0rer1xyp8"]
+
+[ext_resource type="Texture2D" uid="uid://1rkqe2t684vx" path="res://assets/crosshair.png" id="1_fn77e"]
+
+[sub_resource type="GDScript" id="GDScript_mltsf"]
+script/source = "extends Node2D
+
+var shot_mask
+var sup_mask
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	shot_mask = $Shot
+	sup_mask = $Suppression
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	position = get_global_mouse_position()
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.is_action_pressed(\"space\"):
+			var targets = shot_mask.get_overlapping_areas()
+			print(targets)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lxwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j0am4"]
+radius = 328.877
+
+[node name="PlayerGun" type="Node2D"]
+script = SubResource("GDScript_mltsf")
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+texture = ExtResource("1_fn77e")
+
+[node name="Shot" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shot"]
+shape = SubResource("CircleShape2D_4lxwl")
+debug_color = Color(0.980392, 0.133333, 0, 0.419608)
+
+[node name="Suppression" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suppression"]
+shape = SubResource("CircleShape2D_j0am4")
+debug_color = Color(0.658824, 0.482353, 0.501961, 0.419608)

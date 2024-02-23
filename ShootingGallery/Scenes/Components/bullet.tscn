@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4y731oxwg1go"]
+
+[ext_resource type="Script" path="res://Scenes/Components/bullet.gd" id="1_bg224"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m204s"]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_bg224")
+
+[node name="AreaTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_m204s")
+
+[connection signal="timeout" from="AreaTimer" to="." method="_on_area_timer_timeout"]

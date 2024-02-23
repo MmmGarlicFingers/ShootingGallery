@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://clbckg5q03igq"]
+
+[ext_resource type="Script" path="res://Scenes/Components/shoot_component.gd" id="1_etdkp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7tn5l"]
+font_size = 32
+
+[node name="ShootComponent" type="Node2D"]
+script = ExtResource("1_etdkp")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -24.0
+offset_right = 10.0
+offset_bottom = 24.0
+text = "1"
+label_settings = SubResource("LabelSettings_7tn5l")
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="shoot_gun"]

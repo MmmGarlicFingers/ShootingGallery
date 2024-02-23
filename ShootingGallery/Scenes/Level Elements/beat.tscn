@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5dk3wd4h1wn0"]
+
+[ext_resource type="Script" path="res://Scenes/Level Elements/beat.gd" id="1_mgvth"]
+
+[node name="Beat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mgvth")
+
+[node name="Lights" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -536.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

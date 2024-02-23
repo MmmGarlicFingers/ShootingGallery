@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dylcqapvukbpw"]
+
+[ext_resource type="Script" path="res://Scenes/Level Elements/light.gd" id="1_okh0u"]
+[ext_resource type="Texture2D" uid="uid://bc5sm4qecd5ki" path="res://assets/light_off.png" id="1_rlb5e"]
+
+[node name="Light" type="Control"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_okh0u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_rlb5e")
+flip_v = true

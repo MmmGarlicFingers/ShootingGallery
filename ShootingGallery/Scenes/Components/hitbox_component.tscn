@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://d21a4cau1jn46"]
+
+[ext_resource type="Script" path="res://Scenes/Components/hitbox_component.gd" id="1_2etpy"]
+[ext_resource type="Script" path="res://Scenes/Components/ShotArea.gd" id="2_kk16v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfbp0"]
+radius = 96.3328
+
+[node name="HitboxComponent" type="Node2D"]
+script = ExtResource("1_2etpy")
+
+[node name="ShotArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+priority = 1
+script = ExtResource("2_kk16v")
+
+[node name="SuppressedArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+priority = 1
+script = ExtResource("2_kk16v")
+displays_bullet_hole = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SuppressedArea"]
+shape = SubResource("CircleShape2D_vfbp0")
+
+[connection signal="area_entered" from="ShotArea" to="ShotArea" method="_on_area_entered"]
+[connection signal="hit" from="ShotArea" to="." method="on_hit"]
+[connection signal="mouse_entered" from="ShotArea" to="ShotArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ShotArea" to="ShotArea" method="_on_mouse_exited"]
+[connection signal="area_entered" from="SuppressedArea" to="SuppressedArea" method="_on_area_entered"]
+[connection signal="hit" from="SuppressedArea" to="." method="on_suppressed"]
+[connection signal="mouse_entered" from="SuppressedArea" to="SuppressedArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SuppressedArea" to="SuppressedArea" method="_on_mouse_exited"]
