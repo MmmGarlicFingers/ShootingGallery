@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmhcpvkfajo2t"]
+[gd_scene load_steps=11 format=3 uid="uid://dmhcpvkfajo2t"]
 
-[ext_resource type="Texture2D" uid="uid://b8ngsd0hvq7vk" path="res://icon.svg" id="1_7q32q"]
 [ext_resource type="Script" path="res://Scenes/Level Elements/row.gd" id="1_35oo5"]
 [ext_resource type="PackedScene" uid="uid://ce7ro84l247ej" path="res://Scenes/Level Elements/spawner.tscn" id="2_xuktr"]
 [ext_resource type="PackedScene" uid="uid://d21a4cau1jn46" path="res://Scenes/Components/hitbox_component.tscn" id="3_3d25f"]
+[ext_resource type="Texture2D" uid="uid://buj101rghcigx" path="res://assets/log_row.png" id="3_arlcl"]
+[ext_resource type="Texture2D" uid="uid://c3b5jw5furyv4" path="res://assets/log_row_normal.png" id="4_1xp2k"]
 
 [sub_resource type="Curve2D" id="Curve2D_j3057"]
 _data = {
@@ -23,8 +24,12 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_us4tp"]
+diffuse_texture = ExtResource("3_arlcl")
+normal_texture = ExtResource("4_1xp2k")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmnru"]
-size = Vector2(1152, 128)
+size = Vector2(1096, 80)
 
 [node name="Row" type="Node2D"]
 script = ExtResource("1_35oo5")
@@ -63,12 +68,13 @@ curve = SubResource("Curve2D_1edx1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1.90735e-06)
-scale = Vector2(9, 1)
-texture = ExtResource("1_7q32q")
+rotation = 1.5708
+texture = SubResource("CanvasTexture_us4tp")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_3d25f")]
 dest_path = NodePath("CollisionShape2D")
 blocks_shots = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_dmnru")

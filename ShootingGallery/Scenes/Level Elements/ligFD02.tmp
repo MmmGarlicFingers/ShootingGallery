@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dylcqapvukbpw"]
+
+[ext_resource type="Script" path="res://Scenes/Level Elements/light.gd" id="1_okh0u"]
+[ext_resource type="Texture2D" uid="uid://bc5sm4qecd5ki" path="res://assets/light_off.png" id="1_rlb5e"]
+
+[sub_resource type="Gradient" id="Gradient_f4j6s"]
+offsets = PackedFloat32Array(0, 0.37013, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.461039, 0.461039, 0.461039, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0br1y"]
+gradient = SubResource("Gradient_f4j6s")
+fill = 1
+fill_from = Vector2(0.504587, 0)
+fill_to = Vector2(0.550459, 1)
+
+[node name="Light" type="Control"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_okh0u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_rlb5e")
+flip_v = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(64, 324)
+scale = Vector2(26, 10.125)
+enabled = false
+color = Color(1, 0, 0, 1)
+texture = SubResource("GradientTexture2D_0br1y")

@@ -1,10 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlsjo54gv3xcc"]
+[gd_scene load_steps=7 format=3 uid="uid://dlsjo54gv3xcc"]
 
+[ext_resource type="Texture2D" uid="uid://crrmkvkf1xqqk" path="res://assets/circus_background_render.png" id="1_gorgo"]
 [ext_resource type="PackedScene" uid="uid://dg60odwhtjrho" path="res://Scenes/player.tscn" id="1_h1fl4"]
+[ext_resource type="Texture2D" uid="uid://dhirmwhww1jcj" path="res://assets/circus_background_normal.png" id="2_hytce"]
 [ext_resource type="PackedScene" uid="uid://b5dk3wd4h1wn0" path="res://Scenes/Level Elements/beat.tscn" id="3_0q1tn"]
 [ext_resource type="PackedScene" uid="uid://dmhcpvkfajo2t" path="res://Scenes/Level Elements/row.tscn" id="3_dqpy7"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_h2m6d"]
+diffuse_texture = ExtResource("1_gorgo")
+normal_texture = ExtResource("2_hytce")
+
 [node name="Debug" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-0.222167, 2.88486e-05)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("CanvasTexture_h2m6d")
 
 [node name="Beat" parent="." instance=ExtResource("3_0q1tn")]
 BPM = 80.0
@@ -30,3 +41,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.227451, 0.152941, 0.160784, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = -5.07716
+energy = 0.75
+height = 0.45
