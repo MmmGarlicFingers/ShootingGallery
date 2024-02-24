@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dylcqapvukbpw"]
 
 [ext_resource type="Script" path="res://Scenes/Level Elements/light.gd" id="1_okh0u"]
-[ext_resource type="Texture2D" uid="uid://c4t86tsgaxr2s" path="res://assets/light_on.png" id="2_1yelw"]
+[ext_resource type="Texture2D" uid="uid://bc5sm4qecd5ki" path="res://assets/light_off.png" id="2_6tmtt"]
 
 [sub_resource type="Gradient" id="Gradient_jy2x0"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -28,7 +28,7 @@ offset_left = -101.0
 offset_top = -40.0
 offset_right = 226.0
 offset_bottom = 144.0
-texture = ExtResource("2_1yelw")
+texture = ExtResource("2_6tmtt")
 expand_mode = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
