@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://ccqfaefiuj1eb"]
+
+[ext_resource type="Texture2D" uid="uid://sxm1lu15hg6c" path="res://assets/duck_shoot.png" id="1_evo2e"]
+[ext_resource type="Texture2D" uid="uid://du3wchnijxb6s" path="res://assets/duck_normal.png" id="2_whsjo"]
+
+[resource]
+diffuse_texture = ExtResource("1_evo2e")
+normal_texture = ExtResource("2_whsjo")

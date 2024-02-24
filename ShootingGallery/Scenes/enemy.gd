@@ -12,6 +12,8 @@ func _ready():
 
 func shoot_countdown():
 	gun.countdown()
+	if gun.count == 1:
+		$Sprite2D.texture = load("res://Scenes/textures/duck.tres")
 
 
 func _on_hitbox_component_hit():
@@ -25,8 +27,16 @@ func _on_health_component_dead():
 
 func _on_shoot_component_shoot():
 	SignalBus.enemy_shoot.emit()
+	$Sprite2D.texture = load("res://Scenes/textures/duck_shoot.tres")
+	$PointLight2D.enabled = true
+	$ShootEffectTimer.start(0.1)
 
 
 func _on_hitbox_component_suppressed():
 	#gun.reset()
 	pass
+
+
+func _on_shoot_effect_timer_timeout():
+	$Sprite2D.texture = load("res://Scenes/textures/duck_side.tres")
+	$PointLight2D.enabled = false

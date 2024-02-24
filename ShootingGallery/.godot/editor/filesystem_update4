@@ -1,2 +1,7 @@
-res://levels/debug.tscn
 res://Scenes/Level Elements/light.tscn
+res://Scenes/enemy.tscn
+res://levels/debug.tscn
+res://Scenes/Level Elements/row.tscn
+res://Scenes/enemy.gd
+res://Scenes/textures/duck.tres
+res://Scenes/Level Elements/beat.tscn

@@ -21,6 +21,9 @@ SignalBus="*res://Scripts/signal_bus.gd"
 
 [display]
 
+window/size/mode=2
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 mouse_cursor/custom_image="res://assets/crosshair.png"
 mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 
@@ -45,3 +48,7 @@ reload={
 [layer_names]
 
 2d_physics/layer_3="Bullets"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

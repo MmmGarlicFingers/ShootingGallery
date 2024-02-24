@@ -1,24 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://cniak7ddufyh5"]
+[gd_scene load_steps=9 format=3 uid="uid://cniak7ddufyh5"]
 
-[ext_resource type="Texture2D" uid="uid://b8ngsd0hvq7vk" path="res://icon.svg" id="1_78g06"]
 [ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_263cq"]
+[ext_resource type="Texture2D" uid="uid://bpjtwe114q64w" path="res://Scenes/textures/duck_side.tres" id="2_jdc1e"]
 [ext_resource type="PackedScene" uid="uid://d21a4cau1jn46" path="res://Scenes/Components/hitbox_component.tscn" id="3_ebv3y"]
 [ext_resource type="PackedScene" uid="uid://c1hq7x2xqu7i6" path="res://Scenes/Components/health_component.tscn" id="4_gc06g"]
 [ext_resource type="PackedScene" uid="uid://clbckg5q03igq" path="res://Scenes/Components/shoot_component.tscn" id="5_ybuxu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yl8q"]
-size = Vector2(128, 128)
+size = Vector2(85, 87)
+
+[sub_resource type="Gradient" id="Gradient_2d6br"]
+offsets = PackedFloat32Array(0, 0.584416)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j78y7"]
+gradient = SubResource("Gradient_2d6br")
+fill = 1
+fill_from = Vector2(0.46789, 0.472477)
+fill_to = Vector2(1, 1)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_263cq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_78g06")
+texture = ExtResource("2_jdc1e")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_ebv3y")]
 dest_path = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(7.5, -20.5)
 shape = SubResource("RectangleShape2D_3yl8q")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_gc06g")]
@@ -27,7 +38,20 @@ shape = SubResource("RectangleShape2D_3yl8q")
 position = Vector2(0, -96)
 delay = 0.15
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-29, -5)
+scale = Vector2(3.64063, 3.64063)
+enabled = false
+color = Color(0.839216, 0.835294, 0, 1)
+energy = 6.03
+texture = SubResource("GradientTexture2D_j78y7")
+height = 45.0
+
+[node name="ShootEffectTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="hit" from="HitboxComponent" to="." method="_on_hitbox_component_hit"]
 [connection signal="suppressed" from="HitboxComponent" to="." method="_on_hitbox_component_suppressed"]
 [connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]
 [connection signal="shoot" from="ShootComponent" to="." method="_on_shoot_component_shoot"]
+[connection signal="timeout" from="ShootEffectTimer" to="." method="_on_shoot_effect_timer_timeout"]
