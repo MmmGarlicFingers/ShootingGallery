@@ -33,7 +33,7 @@ func _on_shoot_component_shoot():
 
 
 func _on_hitbox_component_suppressed():
-	#gun.reset()
+	gun.reset()
 	pass
 
 

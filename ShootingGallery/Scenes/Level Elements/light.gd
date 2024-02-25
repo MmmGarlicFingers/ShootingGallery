@@ -14,9 +14,9 @@ func turn_on():
 	light.enabled = true
 	image.texture = preload("res://assets/light_on.png")
 	if shoot:
-		light.color = Color.GREEN
+		light.color = Color.YELLOW
 	else:
-		light.color = Color.RED
+		light.color = Color.BLACK
 
 func turn_off():
 	image.texture = preload("res://assets/light_off.png")

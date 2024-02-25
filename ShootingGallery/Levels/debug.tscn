@@ -24,16 +24,16 @@ LIGHTS_BIN = "0101"
 [node name="Row3" parent="." instance=ExtResource("3_dqpy7")]
 position = Vector2(0, -72)
 scale = Vector2(0.8, 0.8)
-sequence = "001 10 1102"
+sequence = "001 10 102 0002 2 22"
 
 [node name="Row2" parent="." instance=ExtResource("3_dqpy7")]
 position = Vector2(0, 16)
 scale = Vector2(0.9, 0.9)
-sequence = "001 01010 012"
+sequence = "001 01010 01 002 22 22"
 
 [node name="Row" parent="." instance=ExtResource("3_dqpy7")]
 position = Vector2(0, 120)
-sequence = "1 001 01 1 2"
+sequence = "1 001 01 1 2 2 2 22"
 
 [node name="Player" parent="." instance=ExtResource("1_h1fl4")]
 anchors_preset = 8
