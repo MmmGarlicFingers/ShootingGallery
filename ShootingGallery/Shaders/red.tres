@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://m04svq83et2q"]
+
+[sub_resource type="Shader" id="Shader_wek5t"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+	COLOR.g = 0.0;
+	COLOR.b = 0.0;
+}
+"
+
+[resource]
+shader = SubResource("Shader_wek5t")

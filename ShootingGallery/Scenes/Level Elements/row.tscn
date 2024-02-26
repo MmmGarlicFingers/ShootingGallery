@@ -55,6 +55,20 @@ spawn_interval = 3
 path_loops = false
 dest_path = NodePath("../../Paths/Path2D3")
 
+[node name="Spawner4" parent="Spawners" instance=ExtResource("2_xuktr")]
+position = Vector2(448, 0)
+cycles = false
+spawn_interval = 3
+path_loops = false
+dest_path = NodePath("../../Paths/Path2D4")
+
+[node name="Spawner5" parent="Spawners" instance=ExtResource("2_xuktr")]
+position = Vector2(448, 0)
+cycles = false
+spawn_interval = 3
+path_loops = false
+dest_path = NodePath("../../Paths/Path2D5")
+
 [node name="Paths" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Paths"]
@@ -62,6 +76,14 @@ curve = SubResource("Curve2D_j3057")
 
 [node name="Path2D2" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_iuxiy")
+
+[node name="Path2D5" type="Path2D" parent="Paths"]
+position = Vector2(-128, 0)
+curve = SubResource("Curve2D_1edx1")
+
+[node name="Path2D4" type="Path2D" parent="Paths"]
+position = Vector2(-256, 0)
+curve = SubResource("Curve2D_1edx1")
 
 [node name="Path2D3" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_1edx1")

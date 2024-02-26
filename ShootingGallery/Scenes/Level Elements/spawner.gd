@@ -16,12 +16,13 @@ func on_cycle():
 	if cycles:
 		beat -= 1
 		if beat == 0:
-			spawn_enemy()
+			spawn_enemy([SignalBus.COLOURS.YELLOW, SignalBus.COLOURS.GREEN].pick_random())
 			beat = spawn_interval
 
-func spawn_enemy():
+func spawn_enemy(colour):
 	var enemy_scene = load("./Scenes/enemy.tscn")
 	var enemy = enemy_scene.instantiate()
+	enemy.set_colour(colour)
 	var path = PathFollow2D.new()
 	
 	destination.add_child(path)
@@ -30,7 +31,7 @@ func spawn_enemy():
 	path.rotation_degrees = 0
 	path.set_process(true)
 	if !path_loops:
-		path.loops = false
+		path.loop = false
 	
 	path.add_child(enemy)
 	return enemy

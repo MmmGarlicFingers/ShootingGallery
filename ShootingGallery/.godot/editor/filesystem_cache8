@@ -1,8 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1708816946
+::res://::1708908930
 icon.svg::CompressedTexture2D::4729886077334772164::1708719398::1708804913::1::::<><>::
 player_gun.tscn::PackedScene::2806506384383370743::1708719398::0::1::::<><>::uid://1rkqe2t684vx::::res://assets/crosshair.png
-::res://assets/::1708813339
+::res://assets/::1708877668
+background.png::CompressedTexture2D::9037863321878258164::1708877665::1708877668::1::::<><>::
+barrier.png::CompressedTexture2D::8188942593561929485::1708868074::1708868083::1::::<><>::
 bullet_hole.png::CompressedTexture2D::7204176535078469040::1708719398::1708804913::1::::<><>::
 circus_background.png::CompressedTexture2D::6420931780126081983::1708804866::1708804913::1::::<><>::
 circus_background_normal.png::CompressedTexture2D::7668153764339241889::1708804866::1708804914::1::::<><>::
@@ -21,47 +23,53 @@ light_on.png::CompressedTexture2D::6849601056612291428::1708805537::1708805553::
 light_shoot.png::CompressedTexture2D::2795372567153779136::1708719398::1708804913::1::::<><>::
 log_row.png::CompressedTexture2D::3810401635050670979::1708806119::1708806121::1::::<><>::
 log_row_normal.png::CompressedTexture2D::6742032151045742767::1708804866::1708804913::1::::<><>::
-::res://Levels/::1708816528
-debug.tscn::PackedScene::7969071205521937234::1708816527::0::1::::<><>::uid://crrmkvkf1xqqk::::res://assets/circus_background_render.png<>uid://dg60odwhtjrho::::res://Scenes/player.tscn<>uid://dhirmwhww1jcj::::res://assets/circus_background_normal.png<>uid://b5dk3wd4h1wn0::::res://Scenes/Level Elements/beat.tscn<>uid://dmhcpvkfajo2t::::res://Scenes/Level Elements/row.tscn
-::res://Scenes/::1708816528
-enemy.gd::GDScript::-1::1708814017::0::1::::<>Node2D<>::
-enemy.tscn::PackedScene::5701830900197025652::1708816528::0::1::::<><>::res://Scenes/enemy.gd<>uid://bpjtwe114q64w::::res://Scenes/textures/duck_side.tres<>uid://d21a4cau1jn46::::res://Scenes/Components/hitbox_component.tscn<>uid://c1hq7x2xqu7i6::::res://Scenes/Components/health_component.tscn<>uid://clbckg5q03igq::::res://Scenes/Components/shoot_component.tscn
-gun.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
-gun.tscn::PackedScene::2580722912967400397::1708719398::0::1::::<><>::res://Scenes/gun.gd<>uid://bg56j7pieb818::::res://Scenes/Components/ammo_component.tscn<>uid://csjvagx4n5kf3::::res://Scenes/Components/trigger_component.tscn
+::res://Levels/::1708902516
+debug.tscn::PackedScene::7969071205521937234::1708902516::0::1::::<><>::uid://dg60odwhtjrho::::res://Scenes/player.tscn<>uid://crrmkvkf1xqqk::::res://assets/circus_background_render.png<>uid://dhirmwhww1jcj::::res://assets/circus_background_normal.png<>uid://b5dk3wd4h1wn0::::res://Scenes/Level Elements/beat.tscn<>uid://dmhcpvkfajo2t::::res://Scenes/Level Elements/row.tscn
+::res://Scenes/::1708902995
+enemy.gd::GDScript::-1::1708899423::0::1::::<>Node2D<>::
+enemy.tscn::PackedScene::5701830900197025652::1708902516::0::1::::<><>::res://Scenes/enemy.gd<>uid://bpjtwe114q64w::::res://Scenes/textures/duck_side.tres<>uid://d21a4cau1jn46::::res://Scenes/Components/hitbox_component.tscn<>uid://c1hq7x2xqu7i6::::res://Scenes/Components/health_component.tscn<>uid://clbckg5q03igq::::res://Scenes/Components/shoot_component.tscn
+gun.gd::GDScript::-1::1708894023::0::1::::<>Node2D<>::
+gun.tscn::PackedScene::2580722912967400397::1708902517::0::1::::<><>::res://Scenes/gun.gd<>uid://bg56j7pieb818::::res://Scenes/Components/ammo_component.tscn<>uid://csjvagx4n5kf3::::res://Scenes/Components/trigger_component.tscn
 player.gd::GDScript::-1::1708719398::0::1::::<>Control<>::
-player.tscn::PackedScene::7645933941116740248::1708719398::0::1::::<><>::uid://c1hq7x2xqu7i6::::res://Scenes/Components/health_component.tscn<>res://Scenes/player.gd<>res://Scenes/UI/ammo_ui.gd<>uid://bc1eenrd8jhyj::::res://Scenes/gun.tscn<>res://Scenes/UI/health_ui.gd<>uid://noma0in8bafj::::res://Scenes/Components/barrier_component.tscn
-::res://Scenes/Components/::1708719398
+player.tscn::PackedScene::7645933941116740248::1708902995::0::1::::<><>::uid://c1hq7x2xqu7i6::::res://Scenes/Components/health_component.tscn<>res://Scenes/player.gd<>res://Scenes/UI/ammo_ui.gd<>uid://bc1eenrd8jhyj::::res://Scenes/gun.tscn<>res://Scenes/UI/health_ui.gd<>res://Scenes/UI/score_ui.gd<>res://Shaders/score.gdshader<>uid://noma0in8bafj::::res://Scenes/Components/barrier_component.tscn
+::res://Scenes/Components/::1708902517
 ammo_component.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
 ammo_component.tscn::PackedScene::2871385081352171041::1708719398::0::1::::<><>::res://Scenes/Components/ammo_component.gd
-barrier_component.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
-barrier_component.tscn::PackedScene::942086185841443435::1708719398::0::1::::<><>::uid://b8ngsd0hvq7vk::::res://icon.svg<>res://Scenes/Components/barrier_component.gd
+barrier_component.gd::GDScript::-1::1708871320::0::1::::<>Node2D<>::
+barrier_component.tscn::PackedScene::942086185841443435::1708902517::0::1::::<><>::res://Scenes/Components/barrier_component.gd<>uid://dow1xno7djghp::::res://assets/barrier.png
 bullet.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
 bullet.tscn::PackedScene::4473436549600384562::1708719398::0::1::::<><>::res://Scenes/Components/bullet.gd
 HealthComponent.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
 health_component.tscn::PackedScene::6613231814356674671::1708719398::0::1::::<><>::res://Scenes/Components/HealthComponent.gd
-hitbox_component.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
+hitbox_component.gd::GDScript::-1::1708873364::0::1::::<>Node2D<>::
 hitbox_component.tscn::PackedScene::9108086544925496981::1708719398::0::1::::<><>::res://Scenes/Components/hitbox_component.gd<>res://Scenes/Components/ShotArea.gd
-shoot_component.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
+shoot_component.gd::GDScript::-1::1708887869::0::1::::<>Node2D<>::
 shoot_component.tscn::PackedScene::5547122679328918508::1708719398::0::1::::<><>::res://Scenes/Components/shoot_component.gd
 ShotArea.gd::GDScript::-1::1708719398::0::1::::<>Area2D<>::
 trigger_component.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
 trigger_component.tscn::PackedScene::6056095361512211726::1708719398::0::1::::<><>::res://Scenes/Components/trigger_component.gd
-::res://Scenes/Level Elements/::1708816528
-beat.gd::GDScript::-1::1708719398::0::1::::<>Control<>::
-beat.tscn::PackedScene::4498937459729399499::1708816528::0::1::::<><>::res://Scenes/Level Elements/beat.gd
-enemy_path.gd::GDScript::-1::1708719398::0::1::::<>PathFollow2D<>::
-light.gd::GDScript::-1::1708804866::0::1::::<>Control<>::
-light.tscn::PackedScene::8866652484528080776::1708816528::0::1::::<><>::res://Scenes/Level Elements/light.gd<>uid://bc5sm4qecd5ki::::res://assets/light_off.png
-row.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
-row.tscn::PackedScene::8016128158574161737::1708816528::0::1::::<><>::res://Scenes/Level Elements/row.gd<>uid://ce7ro84l247ej::::res://Scenes/Level Elements/spawner.tscn<>uid://d21a4cau1jn46::::res://Scenes/Components/hitbox_component.tscn<>uid://buj101rghcigx::::res://assets/log_row.png<>uid://c3b5jw5furyv4::::res://assets/log_row_normal.png
-spawner.gd::GDScript::-1::1708719398::0::1::::<>Node2D<>::
-spawner.tscn::PackedScene::5120715798666873417::1708719398::0::1::::<><>::res://Scenes/Level Elements/spawner.gd
-::res://Scenes/textures/::1708816528
+::res://Scenes/Level Elements/::1708902517
+beat.gd::GDScript::-1::1708875275::0::1::::<>Control<>::
+beat.tscn::PackedScene::4498937459729399499::1708902516::0::1::::<><>::res://Scenes/Level Elements/beat.gd
+enemy_path.gd::GDScript::-1::1708887712::0::1::::<>PathFollow2D<>::
+light.gd::GDScript::-1::1708875767::0::1::::<>Control<>::
+light.tscn::PackedScene::8866652484528080776::1708902516::0::1::::<><>::res://Scenes/Level Elements/light.gd<>uid://bc5sm4qecd5ki::::res://assets/light_off.png
+row.gd::GDScript::-1::1708892952::0::1::::<>Node2D<>::
+row.tscn::PackedScene::8016128158574161737::1708902516::0::1::::<><>::res://Scenes/Level Elements/row.gd<>uid://ce7ro84l247ej::::res://Scenes/Level Elements/spawner.tscn<>uid://d21a4cau1jn46::::res://Scenes/Components/hitbox_component.tscn<>uid://buj101rghcigx::::res://assets/log_row.png<>uid://c3b5jw5furyv4::::res://assets/log_row_normal.png
+spawner.gd::GDScript::-1::1708887722::0::1::::<>Node2D<>::
+spawner.tscn::PackedScene::5120715798666873417::1708902517::0::1::::<><>::res://Scenes/Level Elements/spawner.gd
+::res://Scenes/textures/::1708885736
 duck.tres::CanvasTexture::6735319683674000384::1708812771::0::1::::<><>::uid://c7t8slphidbl0::::res://assets/duck.png<>uid://du3wchnijxb6s::::res://assets/duck_normal.png
 duck_shoot.tres::CanvasTexture::4946552901899072313::1708813457::0::1::::<><>::uid://sxm1lu15hg6c::::res://assets/duck_shoot.png<>uid://du3wchnijxb6s::::res://assets/duck_normal.png
-duck_side.tres::CanvasTexture::3459025899857651196::1708816528::0::1::::<><>::uid://frd43uiuo3eg::::res://assets/duck_side.png<>uid://b8xda4te4ytdd::::res://assets/duck_side_normal.png
-::res://Scenes/UI/::1708719398
+duck_side.tres::CanvasTexture::3459025899857651196::1708885736::0::1::::<><>::uid://frd43uiuo3eg::::res://assets/duck_side.png<>uid://b8xda4te4ytdd::::res://assets/duck_side_normal.png
+::res://Scenes/UI/::1708899449
 ammo_ui.gd::GDScript::-1::1708719398::0::1::::<>Button<>::
 health_ui.gd::GDScript::-1::1708719398::0::1::::<>Button<>::
-::res://Scripts/::1708719398
-signal_bus.gd::GDScript::-1::1708719398::0::1::::<>Node<>::
+score_ui.gd::GDScript::-1::1708899449::0::1::::<>Button<>::
+::res://Scripts/::1708899167
+signal_bus.gd::GDScript::-1::1708899167::0::1::::<>Node<>::
+::res://Shaders/::1708902997
+green.tres::ShaderMaterial::5228119720745353001::1708876932::0::1::::<><>::res://Shaders/set_green.gdshader
+red.tres::ShaderMaterial::895669633832588786::1708885949::0::1::::<><>::
+score.gdshader::Shader::-1::1708902997::0::1::::<><>::
+set_green.gdshader::Shader::-1::1708902997::0::1::::<><>::

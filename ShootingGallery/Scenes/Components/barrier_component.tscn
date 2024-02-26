@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://noma0in8bafj"]
 
-[ext_resource type="Texture2D" uid="uid://b8ngsd0hvq7vk" path="res://icon.svg" id="1_hxqhd"]
 [ext_resource type="Script" path="res://Scenes/Components/barrier_component.gd" id="1_yl52a"]
+[ext_resource type="Texture2D" uid="uid://dow1xno7djghp" path="res://assets/barrier.png" id="2_03akt"]
 
 [sub_resource type="Animation" id="Animation_fa600"]
 resource_name = "Duck"
@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 0.5),
 "update": 0,
-"values": [Vector2(0, 832), Vector2(0, 64)]
+"values": [Vector2(0, 360), Vector2(0, 64)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -68,9 +68,9 @@ _data = {
 script = ExtResource("1_yl52a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
 position = Vector2(0, 448)
-scale = Vector2(9, 9)
-texture = ExtResource("1_hxqhd")
+texture = ExtResource("2_03akt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {

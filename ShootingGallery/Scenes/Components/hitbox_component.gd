@@ -6,27 +6,16 @@ extends Node2D
 
 @export var blocks_shots: bool = false
 
-var vulnerable = false
-
 signal hit
 signal suppressed
 
 func _ready():
-	SignalBus.connect("go", set_vulnerable)
-	SignalBus.connect("stop", set_not_vulnerable)
 	$ShotArea.blocks_shots = blocks_shots
 	remove_child(hitbox)
 	shot_area.add_child(hitbox)
 
 func on_hit():
-	if vulnerable:
-		hit.emit()
+	hit.emit()
 
 func on_suppressed():
 	suppressed.emit()
-
-func set_vulnerable():
-	vulnerable = true
-
-func set_not_vulnerable():
-	vulnerable = false

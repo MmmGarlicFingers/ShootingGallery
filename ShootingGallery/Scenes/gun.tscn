@@ -8,6 +8,7 @@
 script = ExtResource("1_omo6i")
 
 [node name="AmmoComponent" parent="." instance=ExtResource("1_sumqm")]
+RELOAD_TIME = 1.0
 
 [node name="TriggerComponent" parent="." instance=ExtResource("2_qgicd")]
 

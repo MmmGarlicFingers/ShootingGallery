@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmhcpvkfajo2t"]
+
+[ext_resource type="Script" path="res://Scenes/Level Elements/row.gd" id="1_35oo5"]
+[ext_resource type="PackedScene" uid="uid://ce7ro84l247ej" path="res://Scenes/Level Elements/spawner.tscn" id="2_xuktr"]
+[ext_resource type="PackedScene" uid="uid://d21a4cau1jn46" path="res://Scenes/Components/hitbox_component.tscn" id="3_3d25f"]
+[ext_resource type="Texture2D" uid="uid://buj101rghcigx" path="res://assets/log_row.png" id="3_arlcl"]
+[ext_resource type="Texture2D" uid="uid://c3b5jw5furyv4" path="res://assets/log_row_normal.png" id="4_1xp2k"]
+
+[sub_resource type="Curve2D" id="Curve2D_j3057"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -448, 0, 0, 0, 0, 0, -448, -96, 0, 0, 0, 0, 448, -96, 0, 0, 0, 0, 448, 0, 0, 0, 0, 0, 448, -96, 0, 0, 0, 0, -448, -96, 0, 0, 0, 0, -448, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_iuxiy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 448, 0, 0, 0, 0, 0, 384, -96, 0, 0, 0, 0, -448, -96, 0, 0, 0, 0, 384, -96, 0, 0, 0, 0, 448, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_1edx1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 128, -96)
+}
+point_count = 2
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_us4tp"]
+diffuse_texture = ExtResource("3_arlcl")
+normal_texture = ExtResource("4_1xp2k")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmnru"]
+size = Vector2(1096, 80)
+
+[node name="Row" type="Node2D"]
+script = ExtResource("1_35oo5")
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="Spawner" parent="Spawners" instance=ExtResource("2_xuktr")]
+position = Vector2(-448, 0)
+cycles = false
+spawn_interval = 3
+dest_path = NodePath("../../Paths/Path2D")
+
+[node name="Spawner2" parent="Spawners" instance=ExtResource("2_xuktr")]
+position = Vector2(448, 0)
+cycles = false
+spawn_interval = 3
+dest_path = NodePath("../../Paths/Path2D2")
+
+[node name="Spawner3" parent="Spawners" instance=ExtResource("2_xuktr")]
+position = Vector2(448, 0)
+cycles = false
+spawn_interval = 3
+path_loops = false
+dest_path = NodePath("../../Paths/Path2D3")
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_j3057")
+
+[node name="Path2D2" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_iuxiy")
+
+[node name="Path2D3" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_1edx1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+rotation = 1.5708
+texture = SubResource("CanvasTexture_us4tp")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_3d25f")]
+dest_path = NodePath("CollisionShape2D")
+blocks_shots = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_dmnru")

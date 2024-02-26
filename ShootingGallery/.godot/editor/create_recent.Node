@@ -1,2 +1,6 @@
+ColorRect
+RichTextLabel
+AnimationPlayer
+PathFollow2D
 Timer
 PointLight2D

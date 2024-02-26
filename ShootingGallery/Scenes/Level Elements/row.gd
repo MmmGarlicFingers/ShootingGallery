@@ -1,37 +1,63 @@
 extends Node2D
 
-@export var sequence: String = "000"
+@export var sequence: String = "00"
 var cur_enemy = 0
 var spawner
+
+signal done
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalBus.connect("new_cycle", new_cycle)
 	new_cycle()
 
 func new_cycle():
-	choose_spawner()
-	
 	if cur_enemy >= len(sequence):
-		pass
+		if get_child_count() <= 0:
+			done.emit()
 	else:
-		if sequence[cur_enemy] == " ":
-			if get_num_enemies() < 1:
-				cur_enemy += 1
-			else:
-				return
-		if sequence[cur_enemy] == "1":
-			spawner.spawn_enemy()
-		elif sequence[cur_enemy] == "2":
-			spawner.spawn_enemy()
+		var spawn_num = 0
+		var spawn_colour = null
+		while true:
+			match sequence[cur_enemy]: #Ghetto fallthrough
+				" ":
+					if get_num_enemies() < 1:
+						cur_enemy += 1
+						continue
+					else:
+						return
+				"2":
+					spawn_num = 2
+					cur_enemy += 1
+					continue 
+				"Y":
+					spawn_colour = SignalBus.COLOURS.YELLOW
+				"G":
+					spawn_colour = SignalBus.COLOURS.GREEN
+				"R":
+					spawn_colour = SignalBus.COLOURS.RED
+
+			if spawn_colour != null:
+				if spawn_num == 0:
+					spawn_num = 1
+				break
+
+		for i in range(spawn_num):
 			choose_spawner()
-			spawner.spawn_enemy()
-			
+			spawner.spawn_enemy(spawn_colour)
 
 	cur_enemy += 1
 
 func choose_spawner():
-	var spawner_list = $Spawners.get_children()
-	spawner = spawner_list.pick_random()
+	while true: #This makes sure that two ducks won't be placed in the same static path
+		var spawner_list = $Spawners.get_children()
+		spawner = spawner_list.pick_random()
+		var dest_node = spawner.destination
+		if !spawner.path_loops and dest_node.get_child_count() > 1:
+			continue
+		else:
+			break
+		
 
 func get_num_enemies():
 	var num = 0
