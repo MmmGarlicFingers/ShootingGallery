@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://tn64wb5mvs24"]
+
+[ext_resource type="Script" path="res://Scenes/UI/score_reward.gd" id="1_tumwc"]
+
+[node name="ScoreReward" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_tumwc")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+use_parent_material = true
+custom_minimum_size = Vector2(720, 0)
+offset_right = 372.0
+offset_bottom = 46.0
+mouse_filter = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HFlowContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "+100"
+
+[node name="Label2" type="Label" parent="HFlowContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 33

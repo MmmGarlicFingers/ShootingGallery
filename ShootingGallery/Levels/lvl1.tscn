@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://ct6udk2nr0w04"]
+
+[ext_resource type="Texture2D" uid="uid://crrmkvkf1xqqk" path="res://assets/circus_background_render.png" id="1_sy5ga"]
+[ext_resource type="Texture2D" uid="uid://dhirmwhww1jcj" path="res://assets/circus_background_normal.png" id="2_mv4no"]
+[ext_resource type="PackedScene" uid="uid://b5dk3wd4h1wn0" path="res://Scenes/Level Elements/beat.tscn" id="3_nwyxr"]
+[ext_resource type="PackedScene" uid="uid://dmhcpvkfajo2t" path="res://Scenes/Level Elements/row.tscn" id="4_7joeg"]
+[ext_resource type="PackedScene" uid="uid://bs3e2vmtomcvc" path="res://Scenes/Level Elements/final_duck.tscn" id="5_0l47p"]
+[ext_resource type="PackedScene" uid="uid://dg60odwhtjrho" path="res://Scenes/player.tscn" id="6_n1t62"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0rotx"]
+diffuse_texture = ExtResource("1_sy5ga")
+normal_texture = ExtResource("2_mv4no")
+
+[node name="Debug" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-0.222167, 2.88486e-05)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("CanvasTexture_0rotx")
+
+[node name="Beat" parent="." instance=ExtResource("3_nwyxr")]
+BPM = 80.0
+LIGHTS_BIN = "YBB"
+
+[node name="Row" parent="." instance=ExtResource("4_7joeg")]
+position = Vector2(0, 120)
+sequence = "Y Y0Y 2Y 2YY 2YY2Y 3Y"
+
+[node name="FinalDuck" parent="." instance=ExtResource("5_0l47p")]
+position = Vector2(0, 216)
+colour = 1
+
+[node name="Player" parent="." instance=ExtResource("6_n1t62")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0431373, 0, 0.556863, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = -5.07716
+energy = 0.75
+height = 0.45
+
+[connection signal="done" from="Row" to="FinalDuck" method="_spawn"]

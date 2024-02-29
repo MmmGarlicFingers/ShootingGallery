@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3mu7o5l8xj21"]
+
+[ext_resource type="Texture2D" uid="uid://crrmkvkf1xqqk" path="res://assets/circus_background_render.png" id="1_og6ed"]
+[ext_resource type="Texture2D" uid="uid://dhirmwhww1jcj" path="res://assets/circus_background_normal.png" id="2_jcoao"]
+[ext_resource type="PackedScene" uid="uid://b5dk3wd4h1wn0" path="res://Scenes/Level Elements/beat.tscn" id="3_0nd2w"]
+[ext_resource type="PackedScene" uid="uid://dmhcpvkfajo2t" path="res://Scenes/Level Elements/row.tscn" id="4_a8cxp"]
+[ext_resource type="PackedScene" uid="uid://bs3e2vmtomcvc" path="res://Scenes/Level Elements/final_duck.tscn" id="5_72a5t"]
+[ext_resource type="PackedScene" uid="uid://dg60odwhtjrho" path="res://Scenes/player.tscn" id="6_j2u2t"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0rotx"]
+diffuse_texture = ExtResource("1_og6ed")
+normal_texture = ExtResource("2_jcoao")
+
+[node name="Debug" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-0.222167, 2.88486e-05)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("CanvasTexture_0rotx")
+
+[node name="Beat" parent="." instance=ExtResource("3_0nd2w")]
+BPM = 90.0
+LIGHTS_BIN = "YBYB"
+
+[node name="Row3" parent="." instance=ExtResource("4_a8cxp")]
+position = Vector2(0, -72)
+scale = Vector2(0.8, 0.8)
+sequence = "002YY YYY 2YY 3Y 2Y2Y Y"
+
+[node name="Row2" parent="." instance=ExtResource("4_a8cxp")]
+position = Vector2(0, 16)
+scale = Vector2(0.9, 0.9)
+sequence = "02Y0Y YYY Y2Y 3Y  2Y2Y"
+
+[node name="Row" parent="." instance=ExtResource("4_a8cxp")]
+position = Vector2(0, 120)
+sequence = "2Y00Y YYY 03Y 3Y 2Y2Y"
+
+[node name="FinalDuck" parent="." instance=ExtResource("5_72a5t")]
+position = Vector2(0, 216)
+row_count = 3
+colour = 1
+
+[node name="Player" parent="." instance=ExtResource("6_j2u2t")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0431373, 0, 0.556863, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = -5.07716
+energy = 0.75
+height = 0.45
+
+[connection signal="done" from="Row3" to="FinalDuck" method="_spawn"]
+[connection signal="done" from="Row2" to="FinalDuck" method="_spawn"]
+[connection signal="done" from="Row" to="FinalDuck" method="_spawn"]

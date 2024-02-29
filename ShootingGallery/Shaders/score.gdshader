@@ -10,11 +10,11 @@ void fragment() {
 	
 
     // Check if the pixel is white
-    if (color.a >= 0.7) {
+    if (color.a >= 0.4) {
         // Change white pixels to blue
-        color.r = .9/ abs(sin(TIME));
-		color.g = abs(cos(TIME/2.0))/(UV.y*2.0);
-		color.b = abs(sin(TIME/4.0))/(UV.y*2.0);
+        color.r = 256.0;
+		color.g = 0.0 + abs(cos(TIME/4.0)/4.0)/UV.x;
+		color.b = 0.0 + abs(sin(TIME/8.0))/UV.y;
     }
 
 

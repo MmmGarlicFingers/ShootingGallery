@@ -27,7 +27,10 @@ func _on_hitbox_component_hit():
 
 
 func _on_health_component_dead():
-	SignalBus.score_add.emit(100)
+	if $ShootComponent.count == 0:
+		SignalBus.score_add.emit("Honourable")
+	else:
+		SignalBus.score_add.emit("Kill")
 	get_parent().queue_free()
 	queue_free()
 

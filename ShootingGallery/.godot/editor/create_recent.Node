@@ -1,6 +1,13 @@
+Button
 ColorRect
+Label
+Control
 RichTextLabel
+HFlowContainer
+Path2D
+Timer
+Node2D
+HBoxContainer
 AnimationPlayer
 PathFollow2D
-Timer
 PointLight2D

@@ -13,13 +13,16 @@ func _ready():
 
 func new_cycle():
 	if cur_enemy >= len(sequence):
-		if get_child_count() <= 0:
+		if get_num_enemies() <= 0:
 			done.emit()
+			SignalBus.disconnect("new_cycle", new_cycle)
 	else:
 		var spawn_num = 0
 		var spawn_colour = null
 		while true:
 			match sequence[cur_enemy]: #Ghetto fallthrough
+				"0":
+					break
 				" ":
 					if get_num_enemies() < 1:
 						cur_enemy += 1
@@ -28,6 +31,10 @@ func new_cycle():
 						return
 				"2":
 					spawn_num = 2
+					cur_enemy += 1
+					continue 
+				"3":
+					spawn_num = 3
 					cur_enemy += 1
 					continue 
 				"Y":
@@ -53,7 +60,7 @@ func choose_spawner():
 		var spawner_list = $Spawners.get_children()
 		spawner = spawner_list.pick_random()
 		var dest_node = spawner.destination
-		if !spawner.path_loops and dest_node.get_child_count() > 1:
+		if dest_node.get_child_count() > 0:
 			continue
 		else:
 			break

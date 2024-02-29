@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs3e2vmtomcvc"]
+
+[ext_resource type="PackedScene" uid="uid://ce7ro84l247ej" path="res://Scenes/Level Elements/spawner.tscn" id="1_d8mww"]
+[ext_resource type="Script" path="res://Scenes/Level Elements/final_duck.gd" id="1_quatw"]
+
+[sub_resource type="Curve2D" id="Curve2D_u8suk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32)
+}
+point_count = 2
+
+[node name="FinalDuck" type="Node2D"]
+script = ExtResource("1_quatw")
+
+[node name="Spawner" parent="." instance=ExtResource("1_d8mww")]
+cycles = false
+path_loops = false
+dest_path = NodePath("../Path2D")
+
+[node name="Path2D" type="Path2D" parent="."]
+scale = Vector2(3, 3)
+curve = SubResource("Curve2D_u8suk")

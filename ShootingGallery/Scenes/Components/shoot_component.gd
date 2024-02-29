@@ -16,7 +16,6 @@ func countdown():
 	count -= 1
 	if count == 0:
 		timer.start(delay)
-		reset()
 	label.text = str(count)
 
 func reset():
@@ -24,5 +23,6 @@ func reset():
 	label.text = str(count)
 
 func shoot_gun():
+	reset()
 	shoot.emit()
 	

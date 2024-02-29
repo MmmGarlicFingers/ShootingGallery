@@ -38,6 +38,5 @@ position = Vector2(64, 63.9999)
 scale = Vector2(19.875, 19.5)
 enabled = false
 color = Color(1, 0, 0, 1)
-energy = 0.75
 texture = SubResource("GradientTexture2D_7cjt6")
 height = 166.0

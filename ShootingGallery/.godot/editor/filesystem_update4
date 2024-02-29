@@ -1,14 +1,23 @@
-res://Scenes/player.tscn
+res://Shaders/score.gdshader
 res://Shaders/set_green.gdshader
 res://Shaders/red.tres
-res://Shaders/score.gdshader
 res://Scenes/textures/duck_side.tres
 res://Scenes/Level Elements/light.tscn
 res://Scenes/enemy.tscn
 res://Scenes/Level Elements/row.tscn
 res://Scenes/Level Elements/beat.tscn
+res://Scenes/player.tscn
 res://Scenes/Components/barrier_component.tscn
 res://Scenes/Level Elements/spawner.tscn
 res://Scenes/gun.tscn
+res://Scenes/UI/score_reward.tscn
+res://Scenes/Level Elements/final_duck.tscn
+res://Scenes/UI/death_scene.tscn
+res://Scenes/UI/level_button.tscn
+res://Levels/lvl1.tscn
+res://Levels/lvl2.tscn
+res://Levels/lvl3.tscn
+res://Levels/lvl4.tscn
+res://Levels/debug.tscn
+res://Scripts/level_data.gd
 res://levels/debug.tscn
-res://Scenes/UI/score_ui.gd

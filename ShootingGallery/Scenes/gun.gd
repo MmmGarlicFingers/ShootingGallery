@@ -6,6 +6,7 @@ var reloading = false
 var ducking = false
 
 signal update_ammo(ammo)
+signal shoot
 
 var bullet_scene = load("res://Scenes/Components/bullet.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +15,7 @@ func _ready():
 
 func _on_trigger_component_pulled():
 	if ammo.spend_ammo() and !reloading and !ducking:
+		shoot.emit()
 		var bullet = bullet_scene.instantiate()
 		add_child(bullet)
 		update_ammo.emit(ammo.ammo)

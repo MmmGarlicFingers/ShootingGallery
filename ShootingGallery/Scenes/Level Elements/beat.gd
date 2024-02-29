@@ -7,6 +7,7 @@ var timer
 var interval
 var lights = []
 var cur_light = 0
+var stopped = false
 var colours = {
 	"G": SignalBus.COLOURS.GREEN,
 	"R": SignalBus.COLOURS.RED,
@@ -17,6 +18,7 @@ var colours = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MAX_BEATS = len(LIGHTS_BIN)
+	SignalBus.connect("level_done", stop)
 	
 	interval = 60/BPM
 	timer = $Timer
@@ -42,7 +44,12 @@ func _on_timer_timeout():
 	cur_light += 1
 	if cur_light == MAX_BEATS:
 		cur_light = 0
-		SignalBus.new_cycle.emit()
-	lights[cur_light].turn_on()
 	SignalBus.go.emit(lights[cur_light].colour)
+	if cur_light == 0:
+		SignalBus.new_cycle.emit()
+	if !stopped:
+		lights[cur_light].turn_on()
 	timer.start(interval)
+
+func stop():
+	stopped = true

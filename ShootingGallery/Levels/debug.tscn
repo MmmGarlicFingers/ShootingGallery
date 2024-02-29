@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlsjo54gv3xcc"]
+[gd_scene load_steps=8 format=3 uid="uid://dlsjo54gv3xcc"]
 
 [ext_resource type="PackedScene" uid="uid://dg60odwhtjrho" path="res://Scenes/player.tscn" id="1_h1fl4"]
 [ext_resource type="Texture2D" uid="uid://crrmkvkf1xqqk" path="res://assets/circus_background_render.png" id="1_woek4"]
 [ext_resource type="Texture2D" uid="uid://dhirmwhww1jcj" path="res://assets/circus_background_normal.png" id="2_2ktor"]
 [ext_resource type="PackedScene" uid="uid://b5dk3wd4h1wn0" path="res://Scenes/Level Elements/beat.tscn" id="3_0q1tn"]
 [ext_resource type="PackedScene" uid="uid://dmhcpvkfajo2t" path="res://Scenes/Level Elements/row.tscn" id="3_dqpy7"]
+[ext_resource type="PackedScene" uid="uid://bs3e2vmtomcvc" path="res://Scenes/Level Elements/final_duck.tscn" id="6_gg4b7"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0rotx"]
 diffuse_texture = ExtResource("1_woek4")
@@ -18,22 +19,24 @@ scale = Vector2(0.6, 0.6)
 texture = SubResource("CanvasTexture_0rotx")
 
 [node name="Beat" parent="." instance=ExtResource("3_0q1tn")]
-BPM = 120.0
-LIGHTS_BIN = "YBGBR"
+BPM = 80.0
+LIGHTS_BIN = "YBYB"
 
 [node name="Row3" parent="." instance=ExtResource("3_dqpy7")]
 position = Vector2(0, -72)
 scale = Vector2(0.8, 0.8)
-sequence = "RR GG YY 2Y"
 
 [node name="Row2" parent="." instance=ExtResource("3_dqpy7")]
 position = Vector2(0, 16)
 scale = Vector2(0.9, 0.9)
-sequence = "GG R Y Y"
 
 [node name="Row" parent="." instance=ExtResource("3_dqpy7")]
 position = Vector2(0, 120)
-sequence = "G R Y 2R"
+
+[node name="FinalDuck" parent="." instance=ExtResource("6_gg4b7")]
+position = Vector2(0, 216)
+row_count = 3
+colour = 1
 
 [node name="Player" parent="." instance=ExtResource("1_h1fl4")]
 anchors_preset = 8
@@ -43,9 +46,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.227451, 0.152941, 0.160784, 1)
+color = Color(0.0431373, 0, 0.556863, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 rotation = -5.07716
 energy = 0.75
 height = 0.45
+
+[connection signal="done" from="Row3" to="FinalDuck" method="_spawn"]
+[connection signal="done" from="Row2" to="FinalDuck" method="_spawn"]
+[connection signal="done" from="Row" to="FinalDuck" method="_spawn"]
